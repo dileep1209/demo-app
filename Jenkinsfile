@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Upload War To Nexus'){
             steps{
-                script{
+                
 
                     def mavenPom = readMavenPom file: 'pom.xml'
                     def nexusRepoName = mavenPom.version.endsWith("release") ? "simpleapp-release" : "simpleapp-release" 
@@ -34,7 +34,7 @@ pipeline {
                     protocol: 'http', 
                     repository: nexusRepoName, 
                     version: "${mavenPom.version}"
-                    }
+                    
             }
         }
     }
