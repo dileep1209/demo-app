@@ -19,6 +19,7 @@ pipeline {
 
                     def mavenPom = readMavenPom file: 'pom.xml'
                     def simpleapp = 'simple-app'
+                    def release = 'simpleapp-release'
                     nexusArtifactUploader artifacts: [
                         [
                             artifactId: 'simple-app', 
