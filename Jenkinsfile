@@ -18,6 +18,7 @@ pipeline {
                 script{
 
                     def mavenPom = readMavenPom file: 'pom.xml'
+                    def simpleapp = 'simple-app'
                     nexusArtifactUploader artifacts: [
                         [
                             artifactId: 'simple-app', 
