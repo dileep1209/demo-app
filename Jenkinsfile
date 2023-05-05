@@ -20,6 +20,7 @@ pipeline {
                     def mavenPom = readMavenPom file: 'pom.xml'
                     def nexusRepoName = mavenPom.version.endsWith("SNAPSHOT") ? "simpleapp-snapshot" : "simple-app-release" 
                     def groupId = pom.getGroupId()
+                    env.GROUP_ID = groupId
                     nexusArtifactUploader artifacts: [
                         [
                             artifactId: 'simple-app', 
@@ -29,7 +30,7 @@ pipeline {
                         ]
                     ], 
                     credentialsId: 'Nexus_Cred', 
-                    groupId: groupId, 
+                    groupId: ${env.GROUP_ID}, 
                     nexusUrl: '34.69.126.54:8081', 
                     nexusVersion: 'nexus3', 
                     protocol: 'http', 
