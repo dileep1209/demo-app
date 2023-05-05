@@ -18,7 +18,7 @@ pipeline {
                 script{
 
                     def mavenPom = readMavenPom file: 'pom.xml'
-                    def nexusRepoName = mavenPom.version.endsWith("release") ? "simpleapp-release" : "simpleapp-release" 
+                    def nexusRepoName = mavenPom.version.endsWith("release") ? "sample-app-release" : "sample-app-release" 
                     nexusArtifactUploader artifacts: [
                         [
                             artifactId: 'simple-app', 
@@ -29,7 +29,7 @@ pipeline {
                     ], 
                     credentialsId: 'Nexus_Cred', 
                     groupId: 'in.javahome', 
-                    nexusUrl: '34.67.211.130:8081', 
+                    nexusUrl: '34.171.141.118:8081', 
                     nexusVersion: 'nexus3', 
                     protocol: 'http', 
                     repository: nexusRepoName, 
